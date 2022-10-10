@@ -1,7 +1,10 @@
 import time
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 
-GPIO.setmode(GPIO.BOARD)
+def helloworld(self, params, pocket):
+ print('Recieved message')
+ print('Topic: ' + packet.topic)
+ print("Payload: ", (packet.payload))
 myMQTTClient = AWSIoTMQTTClient("RishabClientID") #random key, if another connection using the same key is opened the previous one is auto closed by AWS IOT
 myMQTTClient.configureEndpoint("apdgyoei7c8e7-ats.iot.us-east-1.amazonaws.com", 8883)
 
@@ -15,3 +18,4 @@ myMQTTClient.configureConnectDisconnectTimeout(10) # 10 sec
 myMQTTClient.configureMQTTOperationTimeout(5) # 5 sec
 print ('Initiating Realtime Data Transfer From Raspberry Pi...')
 myMQTTClient.connect()
+myMQTTClient.subscribe("home/helloworld", 1, helloworld)
