@@ -9,8 +9,8 @@ myMQTTClient = AWSIoTMQTTClient("RishabClientID") #random key, if another connec
 myMQTTClient.configureEndpoint("apdgyoei7c8e7-ats.iot.us-east-1.amazonaws.com", 8883)
 
 myMQTTClient.configureCredentials("/AWS-IoT/Certificates/AmazonRootCA1.pem",
- "/AWS-IoT/Certificates/60b1321bad028ee4d96d2706b6a6783eccf6e45a3583cb50a63ab579a2042611-private.pem.key",
- "/AWS-IoT/Certificates/60b1321bad028ee4d96d2706b6a6783eccf6e45a3583cb50a63ab579a2042611-certificate.pem.crt")
+ "/AWS-IoT/Certificates/589d76ddf0c89b03d80bdf0a02e10d046b0c5ab0571a9ae5c5e249319dc4a7c2-private.pem.key",
+ "/AWS-IoT/Certificates/589d76ddf0c89b03d80bdf0a02e10d046b0c5ab0571a9ae5c5e249319dc4a7c2-certificate.pem.crt")
 
 myMQTTClient.configureOfflinePublishQueueing(-1) # Infinite offline Publish queueing
 myMQTTClient.configureDrainingFrequency(2) # Draining: 2 Hz
