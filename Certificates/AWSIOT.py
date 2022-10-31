@@ -19,3 +19,6 @@ myMQTTClient.configureMQTTOperationTimeout(5) # 5 sec
 print ('Initiating Realtime Data Transfer From Raspberry Pi...')
 myMQTTClient.connect()
 myMQTTClient.subscribe("home/helloworld", 1, helloworld)
+
+while True:
+ time.sleep(5)
