@@ -1,7 +1,7 @@
 import time
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 
-def helloworld(self, params, pocket):
+def helloworld(self, params, packet):
  print('Recieved message')
  print('Topic: ' + packet.topic)
  print("Payload: ", (packet.payload))
