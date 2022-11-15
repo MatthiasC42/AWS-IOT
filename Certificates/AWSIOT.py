@@ -27,5 +27,5 @@ print("Publishing Message from RPI")
 myMQTTClient.publish(
  topic="home/helloworld",
  QoS=1,
- payload="{'Message':Message By RPI'}"
+ payload="{'Message':'Message By RPI'}"
 )
