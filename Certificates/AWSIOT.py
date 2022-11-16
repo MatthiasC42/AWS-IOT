@@ -25,7 +25,7 @@ myMQTTClient.connect()
 
 print("Publishing Message from RPI")
 myMQTTClient.publish(
- topic="raspberrypi/test",
+ topic="home/helloworld",
  QoS=1,
  payload="{'Message':'Message By RPI'}"
 )
