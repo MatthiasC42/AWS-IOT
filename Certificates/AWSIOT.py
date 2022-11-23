@@ -1,6 +1,17 @@
 import time
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
-
+def sendingfilecontent(file1):
+ while True:
+    count += 1
+  
+    # Get next line from file
+    line = file1.readline()
+  
+    # if line is empty
+    # end of file is reached
+    if not line:
+        break
+    return "Line{}: {}".format(count, line.strip())
 def helloworld(self, params, packet):
  print('Recieved message')
  print('Topic: ' + packet.topic)
@@ -19,26 +30,15 @@ myMQTTClient.configureMQTTOperationTimeout(5) # 5 sec
 print ('Initiating Realtime Data Transfer From Raspberry Pi...')
 myMQTTClient.connect()
 #myMQTTClient.subscribe("home/helloworld", 1, helloworld)
-
+file1 = open('myfile.txt', 'r')
 #while True:
 # time.sleep(5)
 count = 0
 print("Publishing Message from RPI")
 myMQTTClient.publish(
-file1 = open('28_jpg.txt', 'r')  
-while True:
-    count += 1
-  
-    # Get next line from file
-    line = file1.readline()
-  
-    # if line is empty
-    # end of file is reached
-    if not line:
-        break
     topic="home/helloworld",
     QoS=1,
-    payload=("Line{}: {}".format(count, line.strip()))
+    payload=sendingfilecontent(file1)
   
 file1.close()
 )
