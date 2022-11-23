@@ -1,6 +1,7 @@
 import time
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 def sendingfilecontent(file1):
+ count = 0
  while True:
     count += 1
   
@@ -33,7 +34,6 @@ myMQTTClient.connect()
 file1 = open('28_jpg.txt', 'r')
 #while True:
 # time.sleep(5)
-count = 0
 print("Publishing Message from RPI")
 myMQTTClient.publish(
     topic="home/helloworld",
