@@ -1,18 +1,13 @@
 import time
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
-def sendingfilecontent(file1):
- count = 0
- while True:
-    count += 1
-  
+def sendingfilecontent():
+    file1 = open('28_jpg.txt', 'r')
     # Get next line from file
     line = file1.readline()
-  
-    # if line is empty
-    # end of file is reached
-    if not line:
-        break
-    return "Line{}: {}".format(count, line.strip())
+    print("Using for loop")
+    for line in file1:
+      count += 1
+      print("Line{}: {}".format(count, line.strip()))
 def helloworld(self, params, packet):
  print('Recieved message')
  print('Topic: ' + packet.topic)
