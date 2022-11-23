@@ -35,7 +35,6 @@ file1 = open('28_jpg.txt', 'r')
 line = file1.readline()
 print("Using for loop")
 for line in file1:
-  count += 1
   myMQTTClient.publish(
         topic="home/helloworld",
         QoS=1,
