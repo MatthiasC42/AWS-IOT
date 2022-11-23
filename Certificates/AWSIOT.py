@@ -22,12 +22,10 @@ myMQTTClient.connect()
 
 #while True:
 # time.sleep(5)
-
+count = 0
 print("Publishing Message from RPI")
 myMQTTClient.publish(
-file1 = open('28_jpg.txt', 'r')
-count = 0
-  
+file1 = open('28_jpg.txt', 'r')  
 while True:
     count += 1
   
