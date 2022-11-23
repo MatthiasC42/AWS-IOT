@@ -31,13 +31,13 @@ file1 = open('28_jpg.txt', 'r')
 # time.sleep(5)
 print("Publishing Message from RPI")
 file1 = open('28_jpg.txt', 'r')
-    # Get next line from file
-    line = file1.readline()
-    print("Using for loop")
-    for line in file1:
-      count += 1
-      myMQTTClient.publish(
-            topic="home/helloworld",
-            QoS=1,
-            payload="Line{}: {}".format(count, line.strip())
-            )
+# Get next line from file
+line = file1.readline()
+print("Using for loop")
+for line in file1:
+  count += 1
+  myMQTTClient.publish(
+        topic="home/helloworld",
+        QoS=1,
+        payload="Line{}: {}".format(count, line.strip())
+        )
