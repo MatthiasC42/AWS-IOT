@@ -40,8 +40,7 @@ while True:
         break
     topic="home/helloworld",
     QoS=1,
-    payload="{'Message':'Message By RPI'}"
-    print("Line{}: {}".format(count, line.strip()))
+    payload=("Line{}: {}".format(count, line.strip()))
   
 file1.close()
 )
