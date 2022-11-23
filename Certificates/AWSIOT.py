@@ -39,6 +39,4 @@ myMQTTClient.publish(
     topic="home/helloworld",
     QoS=1,
     payload=sendingfilecontent(file1)
-  
-file1.close()
 )
