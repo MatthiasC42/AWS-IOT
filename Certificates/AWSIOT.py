@@ -37,6 +37,7 @@ for line in file1:
   line_split = line.rstrip("\n").split(' ')
   count += 1
   data = json.dumps(getNormalHeartRate(line_split))
+  print data
   myMQTTClient.publish(
         topic="home/helloworld",
         QoS=1,
