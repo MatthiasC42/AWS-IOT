@@ -26,11 +26,10 @@ myMQTTClient.configureMQTTOperationTimeout(5) # 5 sec
 print ('Initiating Realtime Data Transfer From Raspberry Pi...')
 myMQTTClient.connect()
 #myMQTTClient.subscribe("home/helloworld", 1, helloworld)
-file1 = open('28_jpg.txt', 'r')
 #while True:
 # time.sleep(5)
 print("Publishing Message from RPI")
-file1 = open('28_jpg.txt', 'r')
+file1 = open('29_jpg.txt', 'r')
 ## Get next line from file
 line = file1.readline()
 line_split = line.split(' ')
