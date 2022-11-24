@@ -31,7 +31,7 @@ file1 = open('28_jpg.txt', 'r')
 # time.sleep(5)
 print("Publishing Message from RPI")
 file1 = open('28_jpg.txt', 'r')
-# Get next line from file
+## Get next line from file
 line = file1.readline()
 line_split = line.split(' ')
 print("Using for loop")
