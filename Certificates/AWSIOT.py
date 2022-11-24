@@ -34,7 +34,7 @@ file1 = open('29_jpg.txt', 'r')
 print("Using for loop")
 count = 0
 for line in file1:
-  line_split = line.split(' ')
+  line_split = line.rstrip(“\n”).split(' ')
   count += 1
   data = json.dumps(getNormalHeartRate(line_split))
   myMQTTClient.publish(
