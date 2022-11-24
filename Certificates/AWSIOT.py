@@ -40,5 +40,5 @@ for line in file1:
   myMQTTClient.publish(
         topic="home/helloworld",
         QoS=1,
-        payload="Class:{} X:{} Y:{} Width:{} Height:{} ".format(count, line_split[0],line_split[1],line_split[2],line_split[3],ine_split[4])
+        payload="Class:{} X:{} Y:{} Width:{} Height:{} ".format(count, line_split[0],line_split[1],line_split[2],line_split[3],line_split[4])
         )
