@@ -1,3 +1,4 @@
+import json
 import time
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 def getNormalHeartRate(line_split):
@@ -35,8 +36,7 @@ count = 0
 for line in file1:
   line_split = line.split(' ')
   count += 1
-  getNormalHeartRate(line_split)
-  data = json.dumps(getNormalHeartRate())
+  data = json.dumps(getNormalHeartRate(line_split))
   myMQTTClient.publish(
         topic="home/helloworld",
         QoS=1,
