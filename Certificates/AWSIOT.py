@@ -30,9 +30,6 @@ myMQTTClient.connect()
 # time.sleep(5)
 print("Publishing Message from RPI")
 file1 = open('29_jpg.txt', 'r')
-## Get next line from file
-line = file1.readline()
-line_split = line.split(' ')
 print("Using for loop")
 count = 0
 for line in file1:
