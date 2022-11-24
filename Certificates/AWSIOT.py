@@ -33,6 +33,7 @@ print("Publishing Message from RPI")
 file1 = open('28_jpg.txt', 'r')
 # Get next line from file
 line = file1.readline()
+line_split = line.split(' ')
 print("Using for loop")
 count = 0
 for line in file1:
@@ -40,5 +41,5 @@ for line in file1:
   myMQTTClient.publish(
         topic="home/helloworld",
         QoS=1,
-        payload="Line{}: {}".format(count, line.strip())
+        payload="Class:{} X:{} Y:{} Width:{} Height:{} ".format(count, line_split[0],line_split[1,line_split[2],line_split[3],ine_split[4])
         )
