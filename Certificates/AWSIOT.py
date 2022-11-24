@@ -1,13 +1,13 @@
 import time
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
-def sendingfilecontent():
-    file1 = open('28_jpg.txt', 'r')
-    # Get next line from file
-    line = file1.readline()
-    print("Using for loop")
-    for line in file1:
-      count += 1
-      print("Line{}: {}".format(count, line.strip()))
+def getNormalHeartRate(line_split):
+    data = {}
+    data['class'] = line_split[0]
+    data['x-cords'] = line_split[1]
+    data['y-cords'] = line_split[2]
+    data['width'] = line_split[3]
+    data['height']= line_split[4]
+    return data
 def helloworld(self, params, packet):
  print('Recieved message')
  print('Topic: ' + packet.topic)
@@ -36,9 +36,12 @@ line_split = line.split(' ')
 print("Using for loop")
 count = 0
 for line in file1:
+  line_split = line.split(' ')
   count += 1
+  getNormalHeartRate(line_split)
+  data = json.dumps(getNormalHeartRate())
   myMQTTClient.publish(
         topic="home/helloworld",
         QoS=1,
-        payload="Class:{} X:{} Y:{} Width:{} Height:{} ".format(count, line_split[0],line_split[1],line_split[2],line_split[3],line_split[4])
+        payload=data
         )
