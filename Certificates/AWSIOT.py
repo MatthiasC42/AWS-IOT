@@ -3,11 +3,11 @@ import time
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 def getNormalHeartRate(line_split):
     data = {}
-    data['class'] = line_split[0]
-    data['x-cords'] = line_split[1]
-    data['y-cords'] = line_split[2]
-    data['width'] = line_split[3]
-    data['height']= line_split[4]
+    data['class'] = int(line_split[0])
+    data['x-cords'] = int(line_split[1])
+    data['y-cords'] = int(line_split[2])
+    data['width'] = int(line_split[3])
+    data['height']= int(line_split[4])
     return data
 def helloworld(self, params, packet):
  print('Recieved message')
