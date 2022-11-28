@@ -13,11 +13,11 @@ def read_text_file(file_path):
         #line_split = line_strip.rstrip("\n").split(' ')
         #data = json.dumps(getData(line_split))
         print(line_split)
-        myMQTTClient.publish(
-            topic="home/helloworld",
-            QoS=1,
-            payload=data
-            )
+        #myMQTTClient.publish(
+        #    topic="home/helloworld",
+        #    QoS=1,
+        #    payload=data
+        #    )
 
 def getData(line_split):
     data = {}
