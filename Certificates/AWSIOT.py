@@ -7,30 +7,23 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 # Read text File
 def read_text_file(file_path):
     with open(file_path, 'r') as f:
-        print(f.read())
-        #regex = r'\d+'             
-        #line_split = line.rstrip("\n").split(' ')
-        #line_split = re.findall(regex, line) 
-        #data = json.dumps(getData(line_split))
-        #print(line_split)
-        #myMQTTClient.publish(
-        #    topic="home/helloworld",
-        #    QoS=1,
-        #    payload=data
-        #    )
+        print(f.read())            
+        line_split = line.rstrip("\n").split(' ')
+        data = json.dumps(getData(line_split))
+        print(line_split)
+        myMQTTClient.publish(
+            topic="home/helloworld",
+            QoS=1,
+            payload=data
+            )
 
 def getData(line_split):
     data = {}
-    #data['class'] = float(line_split[1])
-    #data['x-cords'] = float(line_split[2])
-    #data['y-cords'] = float(line_split[3])
-    #data['width'] = float(line_split[4])
-    #data['height']= float(line_split[5])
-    data['class'] = line_split[1]
-    data['x-cords'] = line_split[2]
-    data['y-cords'] = line_split[3]
-    data['width'] = line_split[4]
-    data['height']= line_split[5]
+    data['class'] = float(line_split[1])
+    data['x-cords'] = float(line_split[2])
+    data['y-cords'] = float(line_split[3])
+    data['width'] = float(line_split[4])
+    data['height']= float(line_split[5])
     return data
 myMQTTClient = AWSIoTMQTTClient("MatthiasClientID") #random key, if another connection using the same key is opened the previous one is auto closed by AWS IOT
 myMQTTClient.configureEndpoint("apdgyoei7c8e7-ats.iot.us-east-1.amazonaws.com", 8883)
