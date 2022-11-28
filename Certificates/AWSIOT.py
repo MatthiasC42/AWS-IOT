@@ -7,9 +7,9 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 # Read text File
 def read_text_file(file_path):
     for line in file_path:
-        regex = r'\d+'             
+        #regex = r'\d+'             
         line_split = line.rstrip("\n").split(' ')
-        line_split = re.findall(regex, line) 
+        #line_split = re.findall(regex, line) 
         #data = json.dumps(getData(line_split))
         print(line_split)
         #myMQTTClient.publish(
@@ -20,11 +20,16 @@ def read_text_file(file_path):
 
 def getData(line_split):
     data = {}
-    data['class'] = float(line_split[1])
-    data['x-cords'] = float(line_split[2])
-    data['y-cords'] = float(line_split[3])
-    data['width'] = float(line_split[4])
-    data['height']= float(line_split[5])
+    #data['class'] = float(line_split[1])
+    #data['x-cords'] = float(line_split[2])
+    #data['y-cords'] = float(line_split[3])
+    #data['width'] = float(line_split[4])
+    #data['height']= float(line_split[5])
+    data['class'] = line_split[1]
+    data['x-cords'] = line_split[2]
+    data['y-cords'] = line_split[3]
+    data['width'] = line_split[4]
+    data['height']= line_split[5]
     return data
 myMQTTClient = AWSIoTMQTTClient("MatthiasClientID") #random key, if another connection using the same key is opened the previous one is auto closed by AWS IOT
 myMQTTClient.configureEndpoint("apdgyoei7c8e7-ats.iot.us-east-1.amazonaws.com", 8883)
