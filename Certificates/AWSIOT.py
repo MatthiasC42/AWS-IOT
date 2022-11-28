@@ -8,8 +8,8 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 def read_text_file(file_path):
     with open(file_path, 'r') as line:  
         lines = line.readlines()
-        line_split = lines.split(' ')
-        data = json.dumps(getData(line_split))
+        #line_split = lines.split(' ')
+        data = json.dumps(getData(lines))
         print(line_split)
         myMQTTClient.publish(
             topic="home/helloworld",
