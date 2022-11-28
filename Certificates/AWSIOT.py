@@ -30,14 +30,14 @@ myMQTTClient.connect()
 #while True:
 # time.sleep(5)
 print("Publishing Message from RPI")
-file1 = open('29_jpg.txt', 'r')
+file1 = open('28_jpg.txt', 'r')
 print("Using for loop")
 count = 0
 for line in file1:
   line_split = line.rstrip("\n").split(' ')
   count += 1
   data = json.dumps(getData(line_split))
-  print data
+  print(data)
   myMQTTClient.publish(
         topic="home/helloworld",
         QoS=1,
