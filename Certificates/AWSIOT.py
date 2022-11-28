@@ -10,7 +10,7 @@ def read_text_file(file_path):
         regex = '\d+'             
     
         match = re.findall(regex, line) 
-        line_split = line_strip.rstrip("\n").split(' ')
+        #line_split = line_strip.rstrip("\n").split(' ')
         data = json.dumps(getData(line_split))
         print(data)
         myMQTTClient.publish(
