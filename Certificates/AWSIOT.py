@@ -7,9 +7,9 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 # Read text File
 def read_text_file(file_path):
     for line in file_path:
-        regex = '\d+'             
+        regex = r'\d+'             
     
-        line_split = re.split(regex, line) 
+        line_split = re.findall(regex, line) 
         #line_split = line_strip.rstrip("\n").split(' ')
         #data = json.dumps(getData(line_split))
         print(line_split)
