@@ -14,7 +14,7 @@ def helloworld(self, params, packet):
  print('Topic: ' + packet.topic)
  print("Payload: ", (packet.payload))
 myMQTTClient = AWSIoTMQTTClient("MatthiasClientID") #random key, if another connection using the same key is opened the previous one is auto closed by AWS IOT
-myMQTTClient.configureEndpoint("au37ws9t6r3g5-ats.iot.ap-southeast-1.amazonaws.com", 8883)
+myMQTTClient.configureEndpoint("apdgyoei7c8e7-ats.iot.us-east-1.amazonaws.com", 8883)
 
 myMQTTClient.configureCredentials("AmazonRootCA1.pem",
  "aa90220f9da4a0f40df4fc8f4933f8ae68390740bedeb9067cd3bc78046dbb91-private.pem.key",
