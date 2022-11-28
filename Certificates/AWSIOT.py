@@ -23,7 +23,7 @@ def getData(line_split):
     data = {}
     data['class'] = float(line_split[1])
     data['x-cords'] = float(line_split[2])
-    data['y-cords'] = float(line_split[3)
+    data['y-cords'] = float(line_split[3])
     data['width'] = float(line_split[4])
     data['height']= float(line_split[5])
     return data
