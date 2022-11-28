@@ -1,7 +1,7 @@
 import json
 import time
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
-def getNormalHeartRate(line_split):
+def getData(line_split):
     data = {}
     data['class'] = float(line_split[0])
     data['x-cords'] = float(line_split[1])
@@ -17,8 +17,8 @@ myMQTTClient = AWSIoTMQTTClient("MatthiasClientID") #random key, if another conn
 myMQTTClient.configureEndpoint("au37ws9t6r3g5-ats.iot.ap-southeast-1.amazonaws.com", 8883)
 
 myMQTTClient.configureCredentials("AmazonRootCA1.pem",
- "589d76ddf0c89b03d80bdf0a02e10d046b0c5ab0571a9ae5c5e249319dc4a7c2-private.pem.key",
- "589d76ddf0c89b03d80bdf0a02e10d046b0c5ab0571a9ae5c5e249319dc4a7c2-certificate.pem.crt")
+ "aa90220f9da4a0f40df4fc8f4933f8ae68390740bedeb9067cd3bc78046dbb91-certificate.pem.key",
+ "aa90220f9da4a0f40df4fc8f4933f8ae68390740bedeb9067cd3bc78046dbb91-certificate.pem.crt")
 
 myMQTTClient.configureOfflinePublishQueueing(-1) # Infinite offline Publish queueing
 myMQTTClient.configureDrainingFrequency(2) # Draining: 2 Hz
@@ -36,7 +36,7 @@ count = 0
 for line in file1:
   line_split = line.rstrip("\n").split(' ')
   count += 1
-  data = json.dumps(getNormalHeartRate(line_split))
+  data = json.dumps(getData(line_split))
   print data
   myMQTTClient.publish(
         topic="home/helloworld",
