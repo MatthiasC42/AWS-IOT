@@ -17,7 +17,7 @@ myMQTTClient = AWSIoTMQTTClient("MatthiasClientID") #random key, if another conn
 myMQTTClient.configureEndpoint("au37ws9t6r3g5-ats.iot.ap-southeast-1.amazonaws.com", 8883)
 
 myMQTTClient.configureCredentials("AmazonRootCA1.pem",
- "aa90220f9da4a0f40df4fc8f4933f8ae68390740bedeb9067cd3bc78046dbb91-certificate.pem.key",
+ "aa90220f9da4a0f40df4fc8f4933f8ae68390740bedeb9067cd3bc78046dbb91-private.pem.key",
  "aa90220f9da4a0f40df4fc8f4933f8ae68390740bedeb9067cd3bc78046dbb91-certificate.pem.crt")
 
 myMQTTClient.configureOfflinePublishQueueing(-1) # Infinite offline Publish queueing
