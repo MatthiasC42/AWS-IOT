@@ -1,14 +1,16 @@
 import os
 import json
 import time
+import re
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 
 # Read text File
 def read_text_file(file_path):
     for line in file_path:
-        line_strip = line.strip()
-        line_strip = line_strip.replace("'", "")
-        line_split = line_strip.rstrip("\n /").split(' ')
+        regex = '\d+'             
+    
+        match = re.findall(regex, line) 
+        line_split = line_strip.rstrip("\n").split(' ')
         data = json.dumps(getData(line_split))
         print(data)
         myMQTTClient.publish(
