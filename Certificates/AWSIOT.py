@@ -1,6 +1,20 @@
+import os
 import json
 import time
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
+
+# Read text File
+def read_text_file(file_path):
+    for line in file1:
+        line_split = line.rstrip("\n").split(' ')
+        data = json.dumps(getData(line_split))
+        print(data)
+        myMQTTClient.publish(
+            topic="home/helloworld",
+            QoS=1,
+            payload=data
+            )
+
 def getData(line_split):
     data = {}
     data['class'] = float(line_split[0])
@@ -9,10 +23,6 @@ def getData(line_split):
     data['width'] = float(line_split[3])
     data['height']= float(line_split[4])
     return data
-def helloworld(self, params, packet):
- print('Recieved message')
- print('Topic: ' + packet.topic)
- print("Payload: ", (packet.payload))
 myMQTTClient = AWSIoTMQTTClient("MatthiasClientID") #random key, if another connection using the same key is opened the previous one is auto closed by AWS IOT
 myMQTTClient.configureEndpoint("apdgyoei7c8e7-ats.iot.us-east-1.amazonaws.com", 8883)
 
@@ -29,17 +39,16 @@ myMQTTClient.connect()
 #myMQTTClient.subscribe("home/helloworld", 1, helloworld)
 #while True:
 # time.sleep(5)
+# Folder Path
+path = "home/ai/AWS-IOT/Certificates/test/labels"
+# Change the directory
+os.chdir(path)
 print("Publishing Message from RPI")
-file1 = open('28_jpg.txt', 'r')
 print("Using for loop")
-count = 0
-for line in file1:
-  line_split = line.rstrip("\n").split(' ')
-  count += 1
-  data = json.dumps(getData(line_split))
-  print(data)
-  myMQTTClient.publish(
-        topic="home/helloworld",
-        QoS=1,
-        payload=data
-        )
+for file in os.listdir():
+    # Check whether file is in text format or not
+    if file.endswith(".txt"):
+        file_path = f"{path}\{file}"
+  
+        # call read text file function
+        read_text_file(file_path)
