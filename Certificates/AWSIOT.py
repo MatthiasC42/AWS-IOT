@@ -6,12 +6,13 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 
 # Read text File
 def read_text_file(file_path):
-    for line in file_path:
+    with open(file_path, 'r') as f:
+        print(f.read())
         #regex = r'\d+'             
-        line_split = line.rstrip("\n").split(' ')
+        #line_split = line.rstrip("\n").split(' ')
         #line_split = re.findall(regex, line) 
         #data = json.dumps(getData(line_split))
-        print(line_split)
+        #print(line_split)
         #myMQTTClient.publish(
         #    topic="home/helloworld",
         #    QoS=1,
