@@ -57,7 +57,7 @@ print("Using for loop")
 for file in os.listdir():
     # Check whether file is in text format or not
     if file.endswith(".txt"):
-        file_path = f"{path}\{file}"
+        file_path = f"{path}/{file}"
   
         # call read text file function
         read_text_file(file_path)
