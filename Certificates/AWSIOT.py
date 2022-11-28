@@ -8,15 +8,15 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 def read_text_file(file_path):
     with open(file_path, 'r') as f:
         for line in f:
-        lines = line.readlines()
-        line_split = lines.rstrip('/n').split(' ')
-        data = json.dumps(getData(line_split))
-        print(line_split)
-        myMQTTClient.publish(
-            topic="home/helloworld",
-            QoS=1,
-            payload=data
-            )
+            lines = line.readlines()
+            line_split = lines.rstrip('/n').split(' ')
+            data = json.dumps(getData(line_split))
+            print(line_split)
+            myMQTTClient.publish(
+                topic="home/helloworld",
+                QoS=1,
+                payload=data
+                )
 
 def getData(line_split):
     data = {}
