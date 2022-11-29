@@ -24,6 +24,7 @@ def getData(line_split):
     data['y-cords'] = float(line_split[2])
     data['width'] = float(line_split[3])
     data['height']= float(line_split[4])
+    data['confidence']= float(line_split[5])
     return data
 myMQTTClient = AWSIoTMQTTClient("MatthiasClientID") #random key, if another connection using the same key is opened the previous one is auto closed by AWS IOT
 myMQTTClient.configureEndpoint("apdgyoei7c8e7-ats.iot.us-east-1.amazonaws.com", 8883)
