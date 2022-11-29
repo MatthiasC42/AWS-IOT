@@ -16,7 +16,7 @@ def read_text_file(file_path):
                 QoS=1,
                 payload=data
                 )
-
+        time.sleep(20)
 def getData(line_split):
     data = {}
     data['class'] = float(line_split[0])
