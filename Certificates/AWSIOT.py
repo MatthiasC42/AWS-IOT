@@ -42,7 +42,7 @@ myMQTTClient.connect()
 #while True:
 # time.sleep(5)
 # Folder Path
-path = "/home/ai/AWS-IOT/Certificates/test/labels"
+path = "/home/ai/AWS-IOT/Certificates/labels"
 # Change the directory
 os.chdir(path)
 print("Publishing Message from RPI")
